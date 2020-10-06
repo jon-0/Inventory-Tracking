@@ -1,0 +1,51 @@
+/* 
+    Created on : May 23, 2019, 6:17:30 PM
+    Author     : Leonard T. Erwine
+*/
+
+.root {
+    -fx-font-size: 14px;
+    -fx-font-family: sans-serif;
+    -fx-background-color: #ffffff;
+}
+
+HBox.header-section {
+    -fx-spacing: 16px;
+    -fx-padding: 16px 16px 0px 16px;
+}
+Label.header-section {
+    -fx-padding: 16px 16px 0px 16px;
+}
+.header-section Label, Label.header-section {
+    -fx-text-fill: #3f007f;
+    -fx-font-size: 18px;
+}
+.header-section Label {
+    -fx-padding: 0px 32px 0px 0px;
+}
+.content-section {
+    -fx-padding: 16px;
+}
+GridPane.content-section {
+    -fx-hgap: 4px;
+    -fx-vgap: 16px;
+}
+
+GridPane.content-section Label.hLeftFieldLabel,
+GridPane.content-section Label.hInnerFieldLabel{
+    -fx-font-weight: bold;
+    -fx-text-alignment: right;
+    -fx-alignment: top-right;
+}
+
+GridPane.content-section Label.hInnerFieldLabel {
+    -fx-padding: 0px 0px 0px 12px;
+}
+
+GridPane.content-section Label.hFieldControl {
+    -fx-padding: 0px 0px 0px 0px;
+}
+
+ButtonBar.command-section {
+    -fx-padding: 0px 16px 16px 16px;
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="1131.0" stylesheets="@defaultStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
+   <children>
+      <Label text="Inventory Management System" GridPane.halignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="16.0" right="16.0" top="16.0" />
+         </VBox.margin>
+      </Label>
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+        <items>
+            <StackPane>
+               <children>
+                   <VBox>
+                       <HBox>
+                        <Label minWidth="60.0" text="Parts">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets right="18.0" />
+                           </padding>
+                        </Label>
+                        <Button fx:id="partsSearchButton" mnemonicParsing="false" onAction="#onPartsSearchButtonClick" text="Search" GridPane.columnIndex="1" />
+                        <TextField fx:id="partsSearchTextField" GridPane.columnIndex="2" HBox.hgrow="ALWAYS" />
+                       </HBox>
+                       <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                            <TableView fx:id="partsTableView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <columns>
+                                 <TableColumn fx:id="partIdTableColumn" editable="false" minWidth="-1.0" prefWidth="75.0" text="Part ID" />
+                                 <TableColumn fx:id="partNameTableColumn" editable="false" prefWidth="183.0" text="Part Name" />
+                                 <TableColumn fx:id="partInventoryLevelTableColumn" editable="false" prefWidth="121.0" text="Inventory Level" />
+                                 <TableColumn fx:id="partPriceTableColumn" editable="false" prefWidth="149.0" text="Price / Cost per Unit" />
+                              </columns>
+                            </TableView>
+                            <Label fx:id="noPartMatchesLabel" alignment="CENTER" contentDisplay="CENTER" text="No matching items found." textAlignment="CENTER" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                         </children>
+                       </AnchorPane>
+                        <HBox alignment="CENTER_RIGHT" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#onAddPartButtonClick" text="Add">
+                                 <HBox.margin>
+                                    <Insets left="8.0" right="8.0" top="8.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#onModifyPartButtonClick" text="Modify">
+                                 <HBox.margin>
+                                    <Insets left="8.0" right="8.0" top="8.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#onDeletePartButtonClick" text="Delete">
+                                 <HBox.margin>
+                                    <Insets left="8.0" top="8.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                   </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </StackPane>
+            <StackPane>
+               <children>
+                   <VBox>
+                       <HBox>
+                        <Label minWidth="60.0" text="Products">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets right="18.0" />
+                           </padding>
+                        </Label>
+                        <Button fx:id="productsSearchButton" mnemonicParsing="false" onAction="#onProductsSearchButtonClick" text="Search" GridPane.columnIndex="1" />
+                        <TextField fx:id="productsSearchTextField" GridPane.columnIndex="2" HBox.hgrow="ALWAYS" />
+                       </HBox>
+                       <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                            <TableView fx:id="productsTableView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <columns>
+                                <TableColumn fx:id="productIdTableColumn" editable="false" prefWidth="82.0" text="Product ID" />
+                                <TableColumn fx:id="productNameTableColumn" editable="false" prefWidth="216.0" text="Product Name" />
+                                <TableColumn fx:id="productInventoryLevelTableColumn" editable="false" prefWidth="123.0" text="Inventory Level" />
+                                <TableColumn fx:id="productPriceTableColumn" editable="false" prefWidth="106.0" text="Price Per Unit" />
+                              </columns>
+                            </TableView>
+                            <Label fx:id="noProductMatchesLabel" alignment="CENTER" contentDisplay="CENTER" text="No matching items found." textAlignment="CENTER" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                         </children>
+                       </AnchorPane>
+                        <HBox alignment="CENTER_RIGHT" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#onAddProductButtonClick" text="Add">
+                                 <HBox.margin>
+                                    <Insets left="8.0" right="8.0" top="8.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#onModifyProductButtonClick" text="Modify">
+                                 <HBox.margin>
+                                    <Insets left="8.0" right="8.0" top="8.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#onDeleteProductButtonClick" text="Delete">
+                                 <HBox.margin>
+                                    <Insets left="8.0" top="8.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                   </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </StackPane>
+        </items>
+         <VBox.margin>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </VBox.margin>
+      </SplitPane>
+      <ButtonBar styleClass="command-section">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#onExitClick" text="Exit" />
+        </buttons>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </ButtonBar>
+   </children>
+</VBox>

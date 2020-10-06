@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox stylesheets="@defaultStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditPartController">
+   <children>
+      <HBox styleClass="header-section">
+         <children>
+            <Label fx:id="editPartLabel" text="Add Part" />
+            <RadioButton fx:id="inHouseRadioButton" mnemonicParsing="false" onAction="#updateCompanyOrMachineLabel" selected="true" text="In-House">
+               <toggleGroup>
+                  <ToggleGroup fx:id="partType" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="outsourcedRadioButton" mnemonicParsing="false" onAction="#updateCompanyOrMachineLabel" text="Outsourced" toggleGroup="$partType" />
+         </children>
+      </HBox>
+      <GridPane styleClass="content-section">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="106.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.0" prefWidth="65.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="37.0" />
+          <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints />
+        </rowConstraints>
+         <children>
+            <Label styleClass="hLeftFieldLabel" text="ID" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+            <TextField fx:id="idTextField" accessibleText="Auto-genered ID number" disable="true" promptText="(auto-generated)" styleClass="hFieldControl" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" />
+            <Label styleClass="hLeftFieldLabel" text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <TextField fx:id="nameTextField" accessibleText="Part Name" styleClass="hFieldControl" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Label styleClass="hLeftFieldLabel" text="Inv" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <TextField fx:id="inventoryTextField" accessibleText="Inventory (items in stock)" styleClass="hFieldControl" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <Label styleClass="hLeftFieldLabel" text="Price/Cost" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+            <TextField fx:id="priceTextField" accessibleText="Price/Cost" prefWidth="140.0" styleClass="hFieldControl" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+            <Label styleClass="hLeftFieldLabel" text="Max" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+            <TextField fx:id="maxTextField" accessibleText="Maximum Inventory Level" styleClass="hFieldControl" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+            <Label styleClass="hInnerFieldLabel" text="Min" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+            <TextField fx:id="minTextField" prefWidth="65.0" styleClass="hLeftFieldLabel" GridPane.columnIndex="3" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+            <Label fx:id="companyOrMachineLabel" styleClass="hLeftFieldLabel" text="Company Name" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+            <TextField fx:id="companyOrMachineTextField" accessibleText="Company Name" styleClass="hFieldControl" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+         </children>
+      </GridPane>
+      <ButtonBar styleClass="command-section">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save" />
+            <Button mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</VBox>
